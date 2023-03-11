@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import {
+  useFonts,
+  Poppins_400Regular,
+  Poppins_600SemiBold,
+} from '@expo-google-fonts/poppins';
+import HomeScreen from './components/Home.js';
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({ Poppins_400Regular, Poppins_600SemiBold });
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Drawer.Navigator
+        initialRouteName='Home'
+        screenOptions={{
+          headerShown: false,
+          drawerType: 'back',
+
+          drawerActiveBackgroundColor: '#6320EE',
+          drawerActiveTintColor: 'white',
+          drawerInactiveTintColor: 'white',
+          drawerItemStyle: {
+            borderRadius: 5,
+          },
+        }}
+      >
+        <Drawer.Screen name='Home' component={HomeScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
