@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import AddTask from './AddTask';
-
+import { SafeAreaView } from 'react-native-safe-area-context';
 function HomeScreen() {
   return (
     <>
-      <View
+      <SafeAreaView
         style={{
           flexDirection: 'column',
           backgroundColor: '#F8F0FB',
@@ -14,7 +14,7 @@ function HomeScreen() {
         }}
       >
         <AddTask />
-      </View>
+      </SafeAreaView>
     </>
   );
 }

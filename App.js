@@ -8,7 +8,8 @@ import {
   Poppins_600SemiBold,
 } from '@expo-google-fonts/poppins';
 import HomeScreen from './components/Home.js';
-
+import FinishedTasks from './components/FinishedTasks.js';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 const Drawer = createDrawerNavigator();
 
 export default function App() {
@@ -17,23 +18,24 @@ export default function App() {
     return null;
   }
   return (
-    <NavigationContainer>
-      <Drawer.Navigator
-        initialRouteName='Home'
-        screenOptions={{
-          headerShown: false,
-          drawerType: 'back',
-
-          drawerActiveBackgroundColor: '#6320EE',
-          drawerActiveTintColor: 'white',
-          drawerInactiveTintColor: 'white',
-          drawerItemStyle: {
-            borderRadius: 5,
-          },
-        }}
-      >
-        <Drawer.Screen name='Home' component={HomeScreen} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Drawer.Navigator
+          initialRouteName='Home'
+          screenOptions={{
+            headerShown: false,
+            drawerType: 'back',
+            drawerActiveBackgroundColor: '#6320EE',
+            drawerActiveTintColor: 'white',
+            drawerItemStyle: {
+              borderRadius: 5,
+            },
+          }}
+        >
+          <Drawer.Screen name='Tasks' component={HomeScreen} />
+          <Drawer.Screen name='Finished Tasks' component={FinishedTasks} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }

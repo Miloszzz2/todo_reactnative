@@ -10,7 +10,7 @@ function Items() {
     });
   };
   return (
-    <View style={{ paddingLeft: 40, paddingTop: 80 }}>
+    <View style={{ paddingLeft: 40, paddingTop: 30 }}>
       <View>
         <Text
           style={{
@@ -27,7 +27,7 @@ function Items() {
           iconStyle={{
             borderRadius: 10,
           }}
-          innerIconStyle={{ borderRadius: 10, borderWidth: 2 }}
+          innerIconStyle={{ borderRadius: 10, borderWidth: 4 }}
           textStyle={{ fontFamily: 'Poppins_600SemiBold', fontSize: 20 }}
           fillColor='black'
           isChecked={checked}
