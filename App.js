@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import * as React from 'react';
+import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import {
@@ -17,6 +17,7 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
+
   return (
     <SafeAreaProvider>
       <NavigationContainer>
@@ -29,6 +30,9 @@ export default function App() {
             drawerActiveTintColor: 'white',
             drawerItemStyle: {
               borderRadius: 5,
+            },
+            drawerLabelStyle: {
+              fontFamily: 'Poppins_600SemiBold',
             },
           }}
         >
