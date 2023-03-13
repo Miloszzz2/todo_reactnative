@@ -25,7 +25,7 @@ function Items() {
         <NoTasks tasks={tasks} />
         {tasks &&
           tasks.map((item) => {
-            return <Task item={item} />;
+            return <Task item={item} key={item.id} />;
           })}
       </View>
     </View>
