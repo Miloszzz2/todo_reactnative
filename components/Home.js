@@ -10,7 +10,7 @@ import uuid from 'react-native-uuid';
 export const TasksContext = createContext();
 
 function HomeScreen() {
-  const [tasks, setTasks] = useState([{ task: 'zadanie 1', id: uuid.v4() }]);
+  const [tasks, setTasks] = useState([]);
   const styles = StyleSheet.create({
     container: {
       flex: 1,
