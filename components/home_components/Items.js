@@ -8,7 +8,9 @@ function Items() {
   const { tasks } = useContext(TasksContext);
 
   return (
-    <View style={{ paddingLeft: 40, paddingTop: 30, paddingBottom: 50 }}>
+    <View
+      style={{ paddingLeft: 40, paddingTop: 30, paddingBottom: 50, flex: 1 }}
+    >
       <View>
         <Text
           style={{
@@ -20,7 +22,13 @@ function Items() {
         </Text>
       </View>
 
-      <ScrollView style={{ paddingTop: 10, justifySelf: 'flex-start' }}>
+      <ScrollView
+        style={{
+          paddingTop: 10,
+          justifySelf: 'flex-start',
+          boxSizing: 'border-box',
+        }}
+      >
         <NoTasks tasks={tasks} />
         {tasks &&
           tasks.map((item) => {

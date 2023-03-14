@@ -13,6 +13,7 @@ function FinishedTasks() {
         paddingLeft: 40,
         paddingTop: 30,
         paddingBottom: 20,
+        flex: 1,
       }}
     >
       <Text
