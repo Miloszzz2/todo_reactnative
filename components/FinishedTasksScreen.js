@@ -3,26 +3,28 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { TasksContext } from '../App';
 import { useContext } from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import { ScrollView } from 'react-native';
 
 function FinishedTasks() {
   const { finishedTasks } = useContext(TasksContext);
   return (
-    <SafeAreaView>
-      <View
+    <SafeAreaView
+      style={{
+        paddingLeft: 40,
+        paddingTop: 30,
+        paddingBottom: 20,
+      }}
+    >
+      <Text
         style={{
-          paddingLeft: 40,
-          paddingTop: 30,
+          fontSize: 32,
+          fontFamily: 'Poppins_600SemiBold',
+          marginBottom: 10,
         }}
       >
-        <Text
-          style={{
-            fontSize: 32,
-            fontFamily: 'Poppins_600SemiBold',
-            marginBottom: 10,
-          }}
-        >
-          Finished Tasks
-        </Text>
+        Finished Tasks
+      </Text>
+      <ScrollView>
         {finishedTasks &&
           finishedTasks.map((item) => {
             return (
@@ -47,7 +49,7 @@ function FinishedTasks() {
               />
             );
           })}
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
