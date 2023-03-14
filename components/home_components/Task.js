@@ -1,16 +1,27 @@
-import React, { useContext } from 'react';
-import { TasksContext } from '../Home.js';
+import React, { useContext, useState } from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import Animated, { SlideOutRight, SlideInLeft } from 'react-native-reanimated';
+import { TasksContext } from '../../App.js';
+import 'react-native-get-random-values';
+import uuid from 'react-native-uuid';
 import { View } from 'react-native';
 function Task(props) {
-  const { tasks, setTasks } = useContext(TasksContext);
-  const deleteItem = (findId) => {
+  const { tasks, setTasks, finishedTasks, setFinishedTasks } =
+    useContext(TasksContext);
+  const deleteItem = async (task, findId) => {
+    setFinishedTasks([
+      ...finishedTasks,
+      {
+        task: task,
+        id: uuid.v4(),
+      },
+    ]);
+
     const newTasks = tasks.filter((el) => el.id !== findId);
 
     setTimeout(() => {
       setTasks(newTasks);
-    }, 200);
+    }, 600);
   };
   return (
     <>
@@ -30,7 +41,11 @@ function Task(props) {
           }}
           fillColor='black'
           text={props.item.task}
-          onPress={(isChecked) => (isChecked ? deleteItem(props.item.id) : '')}
+          onPress={(isChecked) => {
+            if (isChecked) {
+              deleteItem(props.item.task, props.item.id);
+            }
+          }}
         />
       </Animated.View>
     </>

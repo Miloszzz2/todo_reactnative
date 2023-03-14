@@ -2,7 +2,7 @@ import { View, TextInput, Pressable, Text, Keyboard } from 'react-native';
 import { useRef, useMemo, useCallback, useState, useContext } from 'react';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
-import { TasksContext } from '../Home';
+import { TasksContext } from '../../App';
 import 'react-native-get-random-values';
 import uuid from 'react-native-uuid';
 
@@ -12,10 +12,7 @@ function BottomPanel() {
 
   const bottomSheetRef = useRef(null);
 
-  // variables
   const snapPoints = useMemo(() => ['4%', '20%'], []);
-
-  // callbacks
 
   const renderBackdrop = useCallback(
     (props) => <BottomSheetBackdrop {...props} pressBehavior={'collapse'} />,

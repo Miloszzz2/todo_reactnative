@@ -1,12 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Text, View } from 'react-native';
-import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import { TasksContext } from '../Home.js';
+import { TasksContext } from '../../App.js';
 
 import Task from './Task.js';
 import NoTasks from './NoTasks.js';
 function Items() {
-  const { tasks, setTasks } = useContext(TasksContext);
+  const { tasks } = useContext(TasksContext);
 
   return (
     <View style={{ paddingLeft: 40, paddingTop: 30 }}>
