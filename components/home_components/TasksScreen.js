@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Text, View, ScrollView } from 'react-native';
-import { TasksContext } from '../../App.js';
-
-import Task from './Task.js';
+import { TasksContext } from '../TasksContextProvider';
+import Tasks from './Tasks.js';
 import NoTasks from './NoTasks.js';
 function Items() {
   const { tasks } = useContext(TasksContext);
@@ -30,10 +29,7 @@ function Items() {
         }}
       >
         <NoTasks tasks={tasks} />
-        {tasks &&
-          tasks.map((item) => {
-            return <Task item={item} key={item.id} />;
-          })}
+        <Tasks tasks={tasks} />
       </ScrollView>
     </View>
   );

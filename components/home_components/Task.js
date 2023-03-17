@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import Animated, { SlideOutRight, SlideInLeft } from 'react-native-reanimated';
-import { TasksContext } from '../../App.js';
+import { TasksContext } from '../TasksContextProvider';
 import 'react-native-get-random-values';
 import uuid from 'react-native-uuid';
-import { View } from 'react-native';
+
 function Task(props) {
   const { tasks, setTasks, finishedTasks, setFinishedTasks } =
     useContext(TasksContext);

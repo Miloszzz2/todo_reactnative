@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { TasksContext } from '../App';
+import { TasksContext } from './TasksContextProvider';
 import { useContext } from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { ScrollView } from 'react-native';
@@ -12,7 +12,7 @@ function FinishedTasks() {
       style={{
         paddingLeft: 40,
         paddingTop: 30,
-        paddingBottom: 20,
+
         flex: 1,
       }}
     >
@@ -25,7 +25,7 @@ function FinishedTasks() {
       >
         Finished Tasks
       </Text>
-      <ScrollView>
+      <ScrollView style={{ paddingBottom: 20 }}>
         {finishedTasks &&
           finishedTasks.map((item) => {
             return (

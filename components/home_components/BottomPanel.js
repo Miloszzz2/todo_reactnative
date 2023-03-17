@@ -2,7 +2,7 @@ import { View, TextInput, Pressable, Text, Keyboard } from 'react-native';
 import { useRef, useMemo, useCallback, useState, useContext } from 'react';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
-import { TasksContext } from '../../App';
+import { TasksContext } from '../TasksContextProvider';
 import 'react-native-get-random-values';
 import uuid from 'react-native-uuid';
 

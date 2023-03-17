@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { createContext, useState } from 'react';
+import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import {
@@ -9,17 +9,11 @@ import {
 } from '@expo-google-fonts/poppins';
 import HomeScreen from './components/HomeScreen.js';
 import FinishedTasksComponent from './components/FinishedTasksScreen.js';
+import AboutmeScreen from './components/AboutmeScreen.js';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-export const TasksContext = createContext();
-
-const Drawer = createDrawerNavigator();
-
+import TasksContextProvider from './components/TasksContextProvider.js';
 export default function App() {
-  const [finishedTasks, setFinishedTasks] = useState([
-    { task: 'Zad', id: 122 },
-  ]);
-  const [tasks, setTasks] = useState([]);
+  const Drawer = createDrawerNavigator();
   const [fontsLoaded] = useFonts({ Poppins_400Regular, Poppins_600SemiBold });
   if (!fontsLoaded) {
     return null;
@@ -27,9 +21,7 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <TasksContext.Provider
-        value={{ tasks, setTasks, finishedTasks, setFinishedTasks }}
-      >
+      <TasksContextProvider>
         <NavigationContainer>
           <Drawer.Navigator
             initialRouteName='Home'
@@ -51,9 +43,10 @@ export default function App() {
               name='Finished Tasks'
               component={FinishedTasksComponent}
             />
+            <Drawer.Screen name='About me' component={AboutmeScreen} />
           </Drawer.Navigator>
         </NavigationContainer>
-      </TasksContext.Provider>
+      </TasksContextProvider>
     </SafeAreaProvider>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, StyleSheet } from 'react-native';
 import BottomPanel from './home_components/BottomPanel';
-import Items from './home_components/Items';
+import TasksScreen from './home_components/TasksScreen';
 
 function HomeScreen() {
   const styles = StyleSheet.create({
@@ -21,7 +21,7 @@ function HomeScreen() {
         }}
       >
         <View style={styles.container}>
-          <Items />
+          <TasksScreen />
           <BottomPanel />
         </View>
       </SafeAreaView>
