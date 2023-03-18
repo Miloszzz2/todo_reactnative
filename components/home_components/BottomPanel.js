@@ -59,19 +59,18 @@ function BottomPanel() {
             setInputValue('');
           }}
           style={{
-            backgroundColor: 'white',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
             borderRadius: 50,
             width: 50,
             height: 50,
+            backgroundColor: 'white',
           }}
         >
           <Text
             style={{
-              fontSize: 35,
-              margin: 0,
+              flex: 1,
+              fontSize: 31,
+              textAlign: 'center',
+              textAlignVertical: 'center',
             }}
           >
             +
