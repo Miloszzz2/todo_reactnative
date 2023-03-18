@@ -48,7 +48,14 @@ function BottomPanel() {
             padding: 10,
             paddingHorizontal: 15,
             borderRadius: 20,
+            height: 60,
             fontFamily: 'Poppins_600SemiBold',
+          }}
+          onSubmitEditing={async () => {
+            Keyboard.dismiss();
+            setInputValue('');
+            bottomSheetRef.current.collapse();
+            await setTasks([...tasks, { task: inputvalue, id: uuid.v4() }]);
           }}
         />
         <Pressable

@@ -4,7 +4,7 @@ import Animated, { SlideOutRight, SlideInLeft } from 'react-native-reanimated';
 import { TasksContext } from '../TasksContextProvider';
 import 'react-native-get-random-values';
 import uuid from 'react-native-uuid';
-
+import InputTextComponent from './InputTextComponent';
 function Task(props) {
   const { tasks, setTasks, finishedTasks, setFinishedTasks } =
     useContext(TasksContext);
@@ -35,12 +35,8 @@ function Task(props) {
             borderRadius: 10,
           }}
           innerIconStyle={{ borderRadius: 10, borderWidth: 4 }}
-          textStyle={{
-            fontFamily: 'Poppins_600SemiBold',
-            fontSize: 20,
-          }}
           fillColor='black'
-          text={props.item.task}
+          textComponent={<InputTextComponent item={props.item} />}
           onPress={(isChecked) => {
             if (isChecked) {
               deleteItem(props.item.task, props.item.id);

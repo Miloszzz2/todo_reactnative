@@ -8,7 +8,7 @@ function Items() {
 
   return (
     <View
-      style={{ paddingLeft: 40, paddingTop: 30, paddingBottom: 50, flex: 1 }}
+      style={{ paddingLeft: 40, paddingTop: 30, paddingBottom: 40, flex: 1 }}
     >
       <View>
         <Text
