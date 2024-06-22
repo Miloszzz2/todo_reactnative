@@ -17,7 +17,7 @@ function Items() {
             fontSize: 32,
           }}
         >
-          Lista Zadań:
+          Tasks:
         </Text>
       </View>
 
